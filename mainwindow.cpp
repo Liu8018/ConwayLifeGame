@@ -69,7 +69,9 @@ void MainWindow::rangeFilter(const cv::Mat &srcMat, cv::Mat &outputMask, int low
 void MainWindow::mapInit()
 {
     //coreMat初始化
-    coreMat.create(71,110,CV_8U);
+    int scaleLevel = ui->mapSize_horizontalSlider->value();
+    if(scaleLevel == 3) scaleLevel = 5;
+    coreMat.create(scaleLevel*71,scaleLevel*110,CV_8U);
     coreMat = 0;
     
     //map初始化
@@ -249,4 +251,19 @@ void MainWindow::on_ClassicalMode_pushButton_clicked()
     ui->SurvivalUpperLimit_spinBox->setValue(3);
     ui->ReproductionLowerLimit_spinBox->setValue(3);
     ui->ReproductionUpperLimit_spinBox->setValue(3);
+}
+
+void MainWindow::on_mapSize_horizontalSlider_valueChanged(int value)
+{
+    switch(value)
+    {
+    case 1: ui->mapSize_label->setText("map size: small");
+            break;
+    case 2: ui->mapSize_label->setText("map size: middle");
+            break;
+    case 3: ui->mapSize_label->setText("map size: large");
+            break;
+    }
+    
+    mapInit();
 }
