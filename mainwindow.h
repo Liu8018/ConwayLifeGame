@@ -55,6 +55,7 @@ private slots:
     void on_SurvivalUpperLimit_spinBox_valueChanged(int arg1);
     void on_ReproductionUpperLimit_spinBox_valueChanged(int arg1);
     void on_ReproductionLowerLimit_spinBox_valueChanged(int arg1);
+    void on_ClassicalMode_pushButton_clicked();
 };
 
 #endif // MAINWINDOW_H

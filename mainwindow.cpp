@@ -242,3 +242,11 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
         }
     }
 }
+
+void MainWindow::on_ClassicalMode_pushButton_clicked()
+{
+    ui->SurvivalLowerLimit_spinBox->setValue(2);
+    ui->SurvivalUpperLimit_spinBox->setValue(3);
+    ui->ReproductionLowerLimit_spinBox->setValue(3);
+    ui->ReproductionUpperLimit_spinBox->setValue(3);
+}
