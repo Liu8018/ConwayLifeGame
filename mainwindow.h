@@ -6,6 +6,7 @@
 #include <opencv2/imgproc.hpp>
 #include <QMainWindow>
 #include <QTimer>
+#include <QMouseEvent>
 
 namespace Ui {
 class MainWindow;
@@ -37,6 +38,9 @@ private:
     
     cv::Mat kernel;
     void evolution();
+    
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
     
 private slots:
     void updateFrame();

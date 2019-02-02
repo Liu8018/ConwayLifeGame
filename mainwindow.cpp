@@ -9,6 +9,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     
+    //在没有按下鼠标按键的时候依然追踪鼠标位置
+    this->setMouseTracking(true);
+    ui->centralWidget->setMouseTracking(true);
+    ui->Main_label->setMouseTracking(true);
+    
     //初始化
     mapInit();
     
@@ -96,9 +101,15 @@ void MainWindow::showMap()
 void MainWindow::on_RunStop_pushButton_clicked()
 {
     if(timer->isActive())
+    {
         timer->stop();
+        ui->RunStopState_label->setText("");
+    }
     else
+    {
         timer->start();
+        ui->RunStopState_label->setText("Running...");
+    }
 }
 
 void MainWindow::on_Exit_pushButton_clicked()
@@ -144,4 +155,54 @@ void MainWindow::on_LifeUpperLimit_spinBox_valueChanged(int arg1)
 {
     if(arg1 < ui->LifeLowerLimit_spinBox->value())
         ui->LifeUpperLimit_spinBox->setValue(ui->LifeLowerLimit_spinBox->value());
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    //如果鼠标按下的是左键且在Main_label范围内
+    int x = event->pos().x() - ui->Main_label->pos().x();
+    int y = event->pos().y() - ui->Main_label->pos().y();
+    if(event->buttons()==Qt::LeftButton
+       && x > 0 && y > 0
+       && x < ui->Main_label->width() && y < ui->Main_label->height())
+    {
+        int realX = map.cols * x / ui->Main_label->width();
+        int realY = map.rows * y / ui->Main_label->height();
+        
+        coreMat.at<uchar>(realY/unitY,realX/unitX) = 1;
+        
+        drawMap();
+        showMap();
+    }
+}
+void MainWindow::mouseMoveEvent(QMouseEvent *event)
+{
+    //如果鼠标在Main_label范围内
+    int x = event->pos().x() - ui->Main_label->pos().x();
+    int y = event->pos().y() - ui->Main_label->pos().y();
+    if(x > 0 && y > 0 && x < ui->Main_label->width() && y < ui->Main_label->height())
+    {
+        //如果鼠标没有按下
+        if(event->buttons() == Qt::NoButton)
+        {
+            int realX = map.cols * x / ui->Main_label->width();
+            int realY = map.rows * y / ui->Main_label->height();
+            
+            drawMap();
+            cv::rectangle(map,cv::Rect(realX/unitX*unitX,realY/unitY*unitY,unitX,unitY),127,-1);
+            showMap();
+        }
+        
+        //如果鼠标按下左键
+        if(event->buttons()==Qt::LeftButton)
+        {
+            int realX = map.cols * x / ui->Main_label->width();
+            int realY = map.rows * y / ui->Main_label->height();
+            
+            coreMat.at<uchar>(realY/unitY,realX/unitX) = 1;
+            
+            drawMap();
+            showMap();
+        }
+    }
 }
