@@ -10,3 +10,5 @@ Wikipedia: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 ![](https://github.com/Liu8018/ConwayLifeGame/blob/master/interesting_patterns/2019-02-02%2011-48-53.png)
 ![](https://github.com/Liu8018/ConwayLifeGame/blob/master/interesting_patterns/2019-02-02%2015-14-04.png)
 ![](https://github.com/Liu8018/ConwayLifeGame/blob/master/interesting_patterns/2019-02-02%2016-43-01.png)
+![](https://github.com/Liu8018/ConwayLifeGame/blob/master/interesting_patterns/2019-02-02%2016-55-42.png)
+![](https://github.com/Liu8018/ConwayLifeGame/blob/master/interesting_patterns/ConwayLifeGame1.gif)
