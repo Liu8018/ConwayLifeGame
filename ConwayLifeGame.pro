@@ -32,3 +32,7 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
+
+INCLUDEPATH += /usr/local/include
+
+LIBS += /usr/local/lib/libopencv_*.so
