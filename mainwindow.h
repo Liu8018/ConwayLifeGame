@@ -45,6 +45,9 @@ private slots:
     void on_Clear_pushButton_clicked();
     void on_Random_pushButton_clicked();
     void on_Speed_spinBox_valueChanged(int arg1);
+    void on_Save_pushButton_clicked();
+    void on_LifeLowerLimit_spinBox_valueChanged(int arg1);
+    void on_LifeUpperLimit_spinBox_valueChanged(int arg1);
 };
 
 #endif // MAINWINDOW_H

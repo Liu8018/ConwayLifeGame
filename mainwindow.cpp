@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <ctime>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -126,5 +127,21 @@ void MainWindow::on_Speed_spinBox_valueChanged(int arg1)
 
 void MainWindow::on_Save_pushButton_clicked()
 {
+    QString fileName;
+    fileName = QFileDialog::getSaveFileName(this);
+    if(fileName.isEmpty()) return;
     
+    cv::imwrite(fileName.toLocal8Bit().data(),map);
+}
+
+void MainWindow::on_LifeLowerLimit_spinBox_valueChanged(int arg1)
+{
+    if(arg1 > ui->LifeUpperLimit_spinBox->value())
+        ui->LifeLowerLimit_spinBox->setValue(ui->LifeUpperLimit_spinBox->value());
+}
+
+void MainWindow::on_LifeUpperLimit_spinBox_valueChanged(int arg1)
+{
+    if(arg1 < ui->LifeLowerLimit_spinBox->value())
+        ui->LifeUpperLimit_spinBox->setValue(ui->LifeLowerLimit_spinBox->value());
 }
