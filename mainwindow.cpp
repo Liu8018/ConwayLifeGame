@@ -123,3 +123,8 @@ void MainWindow::on_Speed_spinBox_valueChanged(int arg1)
 {
     timer->setInterval(1000/arg1);
 }
+
+void MainWindow::on_Save_pushButton_clicked()
+{
+    
+}
