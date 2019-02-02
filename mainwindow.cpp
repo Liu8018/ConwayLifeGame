@@ -159,17 +159,21 @@ void MainWindow::on_LifeUpperLimit_spinBox_valueChanged(int arg1)
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-    //如果鼠标按下的是左键且在Main_label范围内
+    //如果鼠标在Main_label范围内
     int x = event->pos().x() - ui->Main_label->pos().x();
     int y = event->pos().y() - ui->Main_label->pos().y();
-    if(event->buttons()==Qt::LeftButton
-       && x > 0 && y > 0
-       && x < ui->Main_label->width() && y < ui->Main_label->height())
+    if(x > 0 && y > 0 && x < ui->Main_label->width() && y < ui->Main_label->height())
     {
         int realX = map.cols * x / ui->Main_label->width();
         int realY = map.rows * y / ui->Main_label->height();
         
-        coreMat.at<uchar>(realY/unitY,realX/unitX) = 1;
+        //如果按下的是左键,变白
+        if(event->buttons()==Qt::LeftButton)
+            coreMat.at<uchar>(realY/unitY,realX/unitX) = 1;
+        
+        //如果按下的是右键，变黑
+        if(event->buttons()==Qt::RightButton)
+            coreMat.at<uchar>(realY/unitY,realX/unitX) = 0;
         
         drawMap();
         showMap();
@@ -182,12 +186,12 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
     int y = event->pos().y() - ui->Main_label->pos().y();
     if(x > 0 && y > 0 && x < ui->Main_label->width() && y < ui->Main_label->height())
     {
+        int realX = map.cols * x / ui->Main_label->width();
+        int realY = map.rows * y / ui->Main_label->height();
+        
         //如果鼠标没有按下
         if(event->buttons() == Qt::NoButton)
         {
-            int realX = map.cols * x / ui->Main_label->width();
-            int realY = map.rows * y / ui->Main_label->height();
-            
             drawMap();
             cv::rectangle(map,cv::Rect(realX/unitX*unitX,realY/unitY*unitY,unitX,unitY),127,-1);
             showMap();
@@ -196,10 +200,16 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
         //如果鼠标按下左键
         if(event->buttons()==Qt::LeftButton)
         {
-            int realX = map.cols * x / ui->Main_label->width();
-            int realY = map.rows * y / ui->Main_label->height();
-            
             coreMat.at<uchar>(realY/unitY,realX/unitX) = 1;
+            
+            drawMap();
+            showMap();
+        }
+        
+        //如果鼠标按下右键
+        if(event->buttons()==Qt::RightButton)
+        {
+            coreMat.at<uchar>(realY/unitY,realX/unitX) = 0;
             
             drawMap();
             showMap();
