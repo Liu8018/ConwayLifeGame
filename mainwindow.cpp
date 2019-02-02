@@ -43,13 +43,27 @@ void MainWindow::updateFrame()
 
 void MainWindow::evolution()
 {
-    cv::filter2D(coreMat,coreMat,coreMat.depth(),kernel,cv::Point(-1,-1),0,cv::BORDER_ISOLATED);
+    cv::Mat nNeighborsMat;
+    cv::filter2D(coreMat,nNeighborsMat,coreMat.depth(),kernel,cv::Point(-1,-1),0,cv::BORDER_ISOLATED);
     
+    cv::Mat survivalMask, reproductionMask;
+    rangeFilter(nNeighborsMat,survivalMask,
+                ui->SurvivalLowerLimit_spinBox->value(),
+                ui->SurvivalUpperLimit_spinBox->value());
+    rangeFilter(nNeighborsMat,reproductionMask,
+                ui->ReproductionLowerLimit_spinBox->value(),
+                ui->ReproductionUpperLimit_spinBox->value());
+    
+    coreMat = (reproductionMask | coreMat) & survivalMask;
+}
+
+void MainWindow::rangeFilter(const cv::Mat &srcMat, cv::Mat &outputMask, int lowerLimit, int upperLimit)
+{
     cv::Mat upperLimitMask,lowerLimitMask;
-    cv::threshold(coreMat,upperLimitMask,ui->LifeUpperLimit_spinBox->value(),1,CV_THRESH_BINARY_INV);
-    cv::threshold(coreMat,lowerLimitMask,ui->LifeLowerLimit_spinBox->value()-1,1,0);
+    cv::threshold(srcMat,upperLimitMask,upperLimit,1,CV_THRESH_BINARY_INV);
+    cv::threshold(srcMat,lowerLimitMask,lowerLimit-1,1,0);
     
-    coreMat = upperLimitMask & lowerLimitMask;
+    outputMask = upperLimitMask & lowerLimitMask;
 }
 
 void MainWindow::mapInit()
@@ -145,16 +159,28 @@ void MainWindow::on_Save_pushButton_clicked()
     cv::imwrite(fileName.toLocal8Bit().data(),map);
 }
 
-void MainWindow::on_LifeLowerLimit_spinBox_valueChanged(int arg1)
+void MainWindow::on_SurvivalLowerLimit_spinBox_valueChanged(int arg1)
 {
-    if(arg1 > ui->LifeUpperLimit_spinBox->value())
-        ui->LifeLowerLimit_spinBox->setValue(ui->LifeUpperLimit_spinBox->value());
+    if(arg1 > ui->SurvivalUpperLimit_spinBox->value())
+        ui->SurvivalLowerLimit_spinBox->setValue(ui->SurvivalUpperLimit_spinBox->value());
 }
 
-void MainWindow::on_LifeUpperLimit_spinBox_valueChanged(int arg1)
+void MainWindow::on_SurvivalUpperLimit_spinBox_valueChanged(int arg1)
 {
-    if(arg1 < ui->LifeLowerLimit_spinBox->value())
-        ui->LifeUpperLimit_spinBox->setValue(ui->LifeLowerLimit_spinBox->value());
+    if(arg1 < ui->SurvivalLowerLimit_spinBox->value())
+        ui->SurvivalUpperLimit_spinBox->setValue(ui->SurvivalLowerLimit_spinBox->value());
+}
+
+void MainWindow::on_ReproductionUpperLimit_spinBox_valueChanged(int arg1)
+{
+    if(arg1 < ui->ReproductionLowerLimit_spinBox->value())
+        ui->ReproductionUpperLimit_spinBox->setValue(ui->ReproductionLowerLimit_spinBox->value());
+}
+
+void MainWindow::on_ReproductionLowerLimit_spinBox_valueChanged(int arg1)
+{
+    if(arg1 > ui->ReproductionUpperLimit_spinBox->value())
+        ui->ReproductionLowerLimit_spinBox->setValue(ui->ReproductionUpperLimit_spinBox->value());
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)

@@ -19,13 +19,13 @@
   <property name="minimumSize">
    <size>
     <width>1309</width>
-    <height>680</height>
+    <height>740</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>1309</width>
-    <height>900</height>
+    <height>740</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -48,120 +48,87 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="RunStop_pushButton">
+   <widget class="QLabel" name="RunStopState_label">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>10</y>
-      <width>91</width>
-      <height>29</height>
+      <x>60</x>
+      <y>450</y>
+      <width>71</width>
+      <height>17</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(0, 170, 0);</string>
     </property>
     <property name="text">
-     <string>Run/Stop</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="Random_pushButton">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>50</y>
-      <width>91</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(0, 55, 166);</string>
-    </property>
-    <property name="text">
-     <string>Random</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Save_pushButton">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>130</y>
-      <width>91</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(53, 149, 255);</string>
-    </property>
-    <property name="text">
-     <string>Save</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Clear_pushButton">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>90</y>
-      <width>91</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(209, 209, 12);</string>
-    </property>
-    <property name="text">
-     <string>Clear</string>
-    </property>
-   </widget>
-   <widget class="Line" name="line">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>220</y>
-      <width>131</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Exit_pushButton">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>170</y>
-      <width>91</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(209, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string>Exit</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>245</y>
+      <y>10</y>
       <width>151</width>
-      <height>101</height>
+      <height>409</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="Speed_label">
+     <item row="0" column="0" colspan="3">
+      <widget class="QPushButton" name="RunStop_pushButton">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(198, 255, 252);</string>
+        <string notr="true">color: rgb(0, 170, 0);</string>
        </property>
        <property name="text">
-        <string>Speed</string>
+        <string>Run/Stop</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
+     <item row="1" column="0" colspan="3">
+      <widget class="QPushButton" name="Random_pushButton">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 55, 166);</string>
+       </property>
+       <property name="text">
+        <string>Random</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" colspan="3">
+      <widget class="QPushButton" name="Clear_pushButton">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(209, 209, 12);</string>
+       </property>
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="3">
+      <widget class="QPushButton" name="Save_pushButton">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(53, 149, 255);</string>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0" colspan="3">
+      <widget class="QPushButton" name="Exit_pushButton">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(209, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>Exit</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0" colspan="3">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
       <widget class="QSpinBox" name="Speed_spinBox">
        <property name="minimum">
         <number>1</number>
@@ -174,18 +141,32 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="LifeUpperLimit_label">
+     <item row="7" column="0" colspan="3">
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLabel" name="Survival_label">
+       <property name="text">
+        <string>Survival</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0" colspan="2">
+      <widget class="QLabel" name="SurvivalUpperLimit_label">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 184, 169);</string>
        </property>
        <property name="text">
-        <string>Life upper limit</string>
+        <string>    upper limit</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QSpinBox" name="LifeUpperLimit_spinBox">
+     <item row="9" column="2">
+      <widget class="QSpinBox" name="SurvivalUpperLimit_spinBox">
        <property name="maximum">
         <number>8</number>
        </property>
@@ -194,18 +175,18 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="LifeLowerLimit_label">
+     <item row="10" column="0" colspan="2">
+      <widget class="QLabel" name="SurvivalLowerLimit_label">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(190, 194, 255);</string>
        </property>
        <property name="text">
-        <string>Life lower limit</string>
+        <string>    lower limit</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QSpinBox" name="LifeLowerLimit_spinBox">
+     <item row="10" column="2">
+      <widget class="QSpinBox" name="SurvivalLowerLimit_spinBox">
        <property name="maximum">
         <number>8</number>
        </property>
@@ -214,20 +195,71 @@
        </property>
       </widget>
      </item>
+     <item row="11" column="0" colspan="3">
+      <widget class="Line" name="line_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="0" colspan="3">
+      <widget class="QLabel" name="Reproduction_label">
+       <property name="text">
+        <string>           Reproduction</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="0" colspan="2">
+      <widget class="QLabel" name="ReproductionUpperLimit_label">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 184, 169);</string>
+       </property>
+       <property name="text">
+        <string>    upper limit</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="2">
+      <widget class="QSpinBox" name="ReproductionUpperLimit_spinBox">
+       <property name="maximum">
+        <number>8</number>
+       </property>
+       <property name="value">
+        <number>3</number>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="0" colspan="2">
+      <widget class="QLabel" name="ReproductionLowerLimit_label">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(190, 194, 255);</string>
+       </property>
+       <property name="text">
+        <string>    lower limit</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="2">
+      <widget class="QSpinBox" name="ReproductionLowerLimit_spinBox">
+       <property name="maximum">
+        <number>8</number>
+       </property>
+       <property name="value">
+        <number>3</number>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0" colspan="2">
+      <widget class="QLabel" name="Speed_label">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(198, 255, 252);</string>
+       </property>
+       <property name="text">
+        <string>        Speed</string>
+       </property>
+      </widget>
+     </item>
     </layout>
-   </widget>
-   <widget class="QLabel" name="RunStopState_label">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>390</y>
-      <width>71</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
    </widget>
   </widget>
  </widget>

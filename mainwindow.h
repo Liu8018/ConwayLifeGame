@@ -38,6 +38,7 @@ private:
     
     cv::Mat kernel;
     void evolution();
+    void rangeFilter(const cv::Mat &srcMat, cv::Mat &outputMask, int lowerLimit, int upperLimit);
     
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
@@ -50,8 +51,10 @@ private slots:
     void on_Random_pushButton_clicked();
     void on_Speed_spinBox_valueChanged(int arg1);
     void on_Save_pushButton_clicked();
-    void on_LifeLowerLimit_spinBox_valueChanged(int arg1);
-    void on_LifeUpperLimit_spinBox_valueChanged(int arg1);
+    void on_SurvivalLowerLimit_spinBox_valueChanged(int arg1);
+    void on_SurvivalUpperLimit_spinBox_valueChanged(int arg1);
+    void on_ReproductionUpperLimit_spinBox_valueChanged(int arg1);
+    void on_ReproductionLowerLimit_spinBox_valueChanged(int arg1);
 };
 
 #endif // MAINWINDOW_H
