@@ -57,6 +57,7 @@ private slots:
     void on_ReproductionLowerLimit_spinBox_valueChanged(int arg1);
     void on_ClassicalMode_pushButton_clicked();
     void on_mapSize_horizontalSlider_valueChanged(int value);
+    void on_ShowGrid_checkBox_clicked();
 };
 
 #endif // MAINWINDOW_H

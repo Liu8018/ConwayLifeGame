@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete timer;
 }
 
 void MainWindow::updateFrame()
@@ -102,6 +103,8 @@ void MainWindow::drawMap()
         }
     
     //画线
+    if(!ui->ShowGrid_checkBox->checkState())
+        return;
     for(int i=0;i<coreMat.rows;i++)
         cv::line(map,cv::Point(0,i*unitY),cv::Point(map.cols-1,i*unitY),150);
     for(int j=0;j<coreMat.cols;j++)
@@ -119,7 +122,7 @@ void MainWindow::on_RunStop_pushButton_clicked()
     if(timer->isActive())
     {
         timer->stop();
-        ui->RunStopState_label->setText("");
+        ui->RunStopState_label->setText("Stopping");
     }
     else
     {
@@ -266,4 +269,10 @@ void MainWindow::on_mapSize_horizontalSlider_valueChanged(int value)
     }
     
     mapInit();
+}
+
+void MainWindow::on_ShowGrid_checkBox_clicked()
+{
+    drawMap();
+    showMap();
 }

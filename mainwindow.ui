@@ -52,23 +52,23 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>510</y>
-      <width>101</width>
-      <height>51</height>
+      <y>500</y>
+      <width>91</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 75 italic 14pt &quot;Noto Sans&quot;;</string>
     </property>
     <property name="text">
-     <string/>
+     <string>Stopping</string>
     </property>
    </widget>
    <widget class="QSlider" name="mapSize_horizontalSlider">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>700</y>
+      <y>630</y>
       <width>111</width>
       <height>17</height>
      </rect>
@@ -90,7 +90,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>660</y>
+      <y>600</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -100,6 +100,70 @@
     </property>
     <property name="text">
      <string>map size: small</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="ShowGrid_checkBox">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>560</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;Noto Sans&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Show Grid</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="Line" name="line_5">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>530</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_6">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>480</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>500</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 255, 127);</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
    <widget class="QWidget" name="">
@@ -132,7 +196,7 @@
         <number>1</number>
        </property>
        <property name="maximum">
-        <number>99</number>
+        <number>50</number>
        </property>
        <property name="value">
         <number>5</number>
@@ -153,7 +217,8 @@ font: 75 11pt &quot;Noto Sans&quot;;</string>
      <item row="10" column="0" colspan="2">
       <widget class="QLabel" name="SurvivalUpperLimit_label">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 184, 169);</string>
+        <string notr="true">background-color: rgb(255, 184, 169);
+font: 57 9pt &quot;KacstArt&quot;;</string>
        </property>
        <property name="text">
         <string>    upper limit</string>
@@ -163,7 +228,8 @@ font: 75 11pt &quot;Noto Sans&quot;;</string>
      <item row="0" column="0" colspan="3">
       <widget class="QPushButton" name="RunStop_pushButton">
        <property name="styleSheet">
-        <string notr="true">color: rgb(0, 170, 0);</string>
+        <string notr="true">color: rgb(0, 170, 0);
+font: 57 9pt &quot;KacstArt&quot;;</string>
        </property>
        <property name="text">
         <string>Run/Stop</string>
@@ -190,7 +256,8 @@ font: 75 11pt &quot;Noto Sans&quot;;</string>
      <item row="11" column="0" colspan="2">
       <widget class="QLabel" name="SurvivalLowerLimit_label">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(190, 194, 255);</string>
+        <string notr="true">background-color: rgb(190, 194, 255);
+font: 57 9pt &quot;KacstArt&quot;;</string>
        </property>
        <property name="text">
         <string>    lower limit</string>
@@ -207,7 +274,8 @@ font: 75 11pt &quot;Noto Sans&quot;;</string>
      <item row="15" column="0" colspan="2">
       <widget class="QLabel" name="ReproductionLowerLimit_label">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(190, 194, 255);</string>
+        <string notr="true">background-color: rgb(190, 194, 255);
+font: 57 9pt &quot;KacstArt&quot;;</string>
        </property>
        <property name="text">
         <string>    lower limit</string>
@@ -217,7 +285,8 @@ font: 75 11pt &quot;Noto Sans&quot;;</string>
      <item row="6" column="0" colspan="2">
       <widget class="QLabel" name="Speed_label">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(198, 255, 252);</string>
+        <string notr="true">background-color: rgb(198, 255, 252);
+font: 57 9pt &quot;KacstArt&quot;;</string>
        </property>
        <property name="text">
         <string>        Speed</string>
@@ -248,7 +317,8 @@ font: 75 11pt &quot;Noto Sans&quot;;</string>
      <item row="14" column="0" colspan="2">
       <widget class="QLabel" name="ReproductionUpperLimit_label">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 184, 169);</string>
+        <string notr="true">background-color: rgb(255, 184, 169);
+font: 57 9pt &quot;KacstArt&quot;;</string>
        </property>
        <property name="text">
         <string>    upper limit</string>
@@ -277,6 +347,9 @@ font: 75 11pt &quot;Noto Sans&quot;;</string>
      </item>
      <item row="17" column="0" colspan="3">
       <widget class="QPushButton" name="ClassicalMode_pushButton">
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Nimbus Roman No9 L&quot;;</string>
+       </property>
        <property name="text">
         <string>Classical Mode</string>
        </property>
@@ -285,7 +358,8 @@ font: 75 11pt &quot;Noto Sans&quot;;</string>
      <item row="3" column="0" colspan="3">
       <widget class="QPushButton" name="Save_pushButton">
        <property name="styleSheet">
-        <string notr="true">color: rgb(53, 149, 255);</string>
+        <string notr="true">color: rgb(53, 149, 255);
+font: 57 9pt &quot;KacstArt&quot;;</string>
        </property>
        <property name="text">
         <string>Save</string>
@@ -295,7 +369,8 @@ font: 75 11pt &quot;Noto Sans&quot;;</string>
      <item row="2" column="0" colspan="3">
       <widget class="QPushButton" name="Clear_pushButton">
        <property name="styleSheet">
-        <string notr="true">color: rgb(209, 209, 12);</string>
+        <string notr="true">color: rgb(209, 209, 12);
+font: 57 9pt &quot;KacstArt&quot;;</string>
        </property>
        <property name="text">
         <string>Clear</string>
@@ -305,7 +380,8 @@ font: 75 11pt &quot;Noto Sans&quot;;</string>
      <item row="4" column="0" colspan="3">
       <widget class="QPushButton" name="Exit_pushButton">
        <property name="styleSheet">
-        <string notr="true">color: rgb(209, 0, 0);</string>
+        <string notr="true">color: rgb(209, 0, 0);
+font: 57 9pt &quot;KacstArt&quot;;</string>
        </property>
        <property name="text">
         <string>Exit</string>
@@ -315,7 +391,8 @@ font: 75 11pt &quot;Noto Sans&quot;;</string>
      <item row="1" column="0" colspan="3">
       <widget class="QPushButton" name="Random_pushButton">
        <property name="styleSheet">
-        <string notr="true">color: rgb(0, 55, 166);</string>
+        <string notr="true">color: rgb(0, 55, 166);
+font: 57 9pt &quot;KacstArt&quot;;</string>
        </property>
        <property name="text">
         <string>Random</string>
@@ -324,6 +401,17 @@ font: 75 11pt &quot;Noto Sans&quot;;</string>
      </item>
     </layout>
    </widget>
+   <zorder>label</zorder>
+   <zorder>Main_label</zorder>
+   <zorder>RunStopState_label</zorder>
+   <zorder>ClassicalMode_pushButton</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>mapSize_horizontalSlider</zorder>
+   <zorder>mapSize_label</zorder>
+   <zorder>RunStopState_label</zorder>
+   <zorder>ShowGrid_checkBox</zorder>
+   <zorder>line_5</zorder>
+   <zorder>line_6</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
