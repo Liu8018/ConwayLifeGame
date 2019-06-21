@@ -122,7 +122,7 @@ void MainWindow::on_RunStop_pushButton_clicked()
     if(timer->isActive())
     {
         timer->stop();
-        ui->RunStopState_label->setText("Stopping");
+        ui->RunStopState_label->setText("");
     }
     else
     {
